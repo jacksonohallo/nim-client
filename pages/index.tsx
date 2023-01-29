@@ -1,13 +1,13 @@
 import axios from "axios";
 import type { NextPage } from "next";
-import { About, Contact, Experience, Hero } from "../sections";
+import { About, Contact, Hero } from "../sections";
 
 interface HomeProps {
   repositories?: Repository[];
 }
 
-const Home: NextPage<HomeProps> = (props) => {
-  const { repositories } = props;
+const Home: NextPage<HomeProps> = () => {
+
 
   return (
     <div className="home">
