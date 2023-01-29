@@ -3,4 +3,4 @@ import Contact from "./Contact/Contact";
 import Hero from "./Hero/Hero";
 
 
-export { About, Contact, Experience, Hero, Projects };
+export { About, Contact,  Hero};
