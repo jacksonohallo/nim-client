@@ -16,7 +16,7 @@ const Contact = () => {
           <FadeInContainer lazyLoad offset={-50}>
             <p>
               Feel free to contact me. My inbox is always open. I'll get back to
-              you as soon as possible, that's a promise!
+              you as soon as possible.
             </p>
           </FadeInContainer>
           <FadeInContainer lazyLoad offset={-50}>
