@@ -24,14 +24,14 @@ const MyApp = (props: MyAppProps) => {
   return (
     <CacheProvider value={emotionCache}>
       <Head>
-        <title>Nathan S. Santos</title>
+        <title>Nimrod Kibet</title>
         <meta
           name="description"
-          content="I’m a Front-end engineer with 4 years of experience specializing in building high-quality digital products."
+          content="I’m a Geologist"
         />
         <meta
           name="author"
-          content="Nathan Silva Santos <nathansilvasantos@gmail.com>"
+          content="Niromroad <nimrodmadelakibet@gmail.com>"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
