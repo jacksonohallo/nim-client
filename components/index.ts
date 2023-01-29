@@ -7,7 +7,6 @@ import Header from "./Header/Header";
 import Layout from "./Layout/Layout";
 import Logo from "./Logo/Logo";
 import Menu from "./Menu/Menu";
-import ProjectCard from "./ProjectCard/ProjectCard";
 import Social from "./Social/Social";
 import ThemeProvider from "./ThemeProvider/ThemeProvider";
 
@@ -21,7 +20,6 @@ export {
   Layout,
   Logo,
   Menu,
-  ProjectCard,
   Social,
   ThemeProvider,
 };
