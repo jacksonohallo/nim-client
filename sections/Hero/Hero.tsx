@@ -30,29 +30,30 @@ const Hero = () => {
       <Container maxWidth="lg">
         <div className="content">
           <FadeInContainer delay={1300}>
-            <h3>Hi, my name is</h3>
+            <h3>Jambo, Welcome to My Portfolio!</h3>
           </FadeInContainer>
           <FadeInContainer delay={1450}>
-            <h1>Nathan Santos.</h1>
+            <h1> Nimrod Kibet</h1>
           </FadeInContainer>
           <FadeInContainer delay={1600}>
-            <h2>I build digital experiences.</h2>
+            <h2>Geospatial Analyst</h2>
           </FadeInContainer>
           <FadeInContainer delay={1750}>
             <h4>
-              I’m a Front-end engineer with 4 years of experience specializing
-              in building high-quality digital products. Currently, I’m Tech
-              Lead at{" "}
+              I'm a passionate Geospatial Analyst with 4 year experience in 
+              leveraging Geographic information Systems technologies in problem solving. Currently, doing 
+              Msc Applied Geoinformatic {" "}
               <a
                 href="https://w16.dev/"
                 target="_blank"
                 rel="noreferrer"
                 className="underline-hover"
               >
-                W16 Software House
+               University of Salzburg, Austria
               </a>
               .
             </h4>
+  
           </FadeInContainer>
         </div>
       </Container>
@@ -73,3 +74,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

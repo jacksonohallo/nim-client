@@ -16,15 +16,8 @@ const Menu = () => {
         </li>
         <li>
           <FadeInContainer delay={500}>
-            <MUIButton component="a" href="/#experience">
-              Experience
-            </MUIButton>
-          </FadeInContainer>
-        </li>
-        <li>
-          <FadeInContainer delay={650}>
-            <MUIButton component="a" href="/#projects">
-              Projects
+            <MUIButton component="a" href="https://client-delta-tan.vercel.app/" target="_blank">
+              Geoinformatics
             </MUIButton>
           </FadeInContainer>
         </li>
@@ -35,11 +28,12 @@ const Menu = () => {
             </MUIButton>
           </FadeInContainer>
         </li>
+
         <li>
           <FadeInContainer delay={950}>
             <Button
               size="medium"
-              href="/assets/Resume-Nathan_Silva_Santos.pdf"
+              href="/assets/nimrod.pdf"
               target="_blank"
             >
               Resume

@@ -17,8 +17,8 @@ const About = () => {
             <FadeInContainer lazyLoad>
               <div className="about__image">
                 <Image
-                  src="/assets/images/me.jpg"
-                  alt="Nathan S. Santos"
+                  src="/assets/images/me.jpeg"
+                  alt="nimrod kibet"
                   width={212}
                   height={212}
                 />
@@ -28,11 +28,15 @@ const About = () => {
             <div className="about__text">
               <FadeInContainer lazyLoad>
                 <p>
-                  Passionate about learning, applying new technologies, and
-                  constantly improving my skills. As a developer, I aim to write
-                  clean code which can be easily read, tested, maintained,
-                  reused, and extended. I am highly committed to my work, always
-                  doing my best to push initiatives to successful completion.
+                Geospatial Analyst with professional and academic experience in
+leveraging Geographic Information Systems (GIS) technologies in
+problem solving. Adept knowledge in geospatial data collection,
+analysis, and visualization with hands-on experience in Esri products
+including cloud-based GIS technologies. I have a comfortable
+understanding of spatial databases and currently working on my Java
+skills. I am very open-minded, communicative, team player and
+always willing to learn and take on new challenges.
+
                 </p>
               </FadeInContainer>
               <FadeInContainer lazyLoad>
@@ -40,14 +44,14 @@ const About = () => {
               </FadeInContainer>
               <FadeInContainer lazyLoad>
                 <ul className="about__skills">
-                  <li>JavaScript (ES6+)</li>
-                  <li>TypeScript</li>
-                  <li>React.js</li>
-                  <li>React Native</li>
-                  <li>Next.js</li>
-                  <li>Node.js</li>
-                  <li>Styled Components</li>
-                  <li>SASS</li>
+                  <li>ArcGIS pro</li>
+                  <li>Spatial simulation (GAMA)</li>
+                  <li>Agisoft metashape</li>
+                  <li>Survey 123</li>
+                  <li>QGIS</li>
+                  <li>Java</li>
+                  <li>Geodata acquisition</li>
+                  <li>Geospatial databases (postgress)</li>
                 </ul>
               </FadeInContainer>
             </div>

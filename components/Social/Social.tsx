@@ -15,7 +15,7 @@ const Social = () => {
           <FadeInContainer delay={1900}>
             <IconButton
               component="a"
-              href="https://github.com/nathanssantos/"
+              href="https://github.com/jacksonohallo/"
               target="_blank"
               rel="noreferrer"
             >
@@ -25,7 +25,7 @@ const Social = () => {
           <FadeInContainer delay={2150}>
             <IconButton
               component="a"
-              href="https://www.instagram.com/nathanssantosdev/"
+              href="https://www.instagram.com//"
               target="_blank"
               rel="noreferrer"
             >
@@ -35,7 +35,7 @@ const Social = () => {
           <FadeInContainer delay={2300}>
             <IconButton
               component="a"
-              href="https://www.linkedin.com/in/nathan-s-santos-4b2637163/"
+              href="https://www.linkedin.com/in/nimrod-kibet-b6b340115/"
               target="_blank"
               rel="noreferrer"
             >
@@ -47,12 +47,12 @@ const Social = () => {
           <FadeInContainer delay={1900}>
             <div className="email">
               <a
-                href="mailto:nathansilvasantos@gmail.com"
+                href=" nimrodmadelakibet@gmail.com"
                 target="_blank"
                 rel="noreferrer"
                 className="underline-hover"
               >
-                nathansilvasantos@gmail.com
+                nimrodmadelakibet@gmail.com
               </a>
             </div>
           </FadeInContainer>

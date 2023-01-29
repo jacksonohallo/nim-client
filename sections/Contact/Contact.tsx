@@ -20,7 +20,7 @@ const Contact = () => {
             </p>
           </FadeInContainer>
           <FadeInContainer lazyLoad offset={-50}>
-            <Button href="mailto:nathansilvasantos@gmail.com">Say Hello</Button>
+            <Button href="mailto:nimrodmandelakibet@gmail.com">Say Hello</Button>
           </FadeInContainer>
         </div>
       </Container>
