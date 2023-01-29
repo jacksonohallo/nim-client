@@ -6,8 +6,8 @@ interface HomeProps {
   repositories?: Repository[];
 }
 
-const Home: NextPage<HomeProps> = () => {
-
+const Home: NextPage<HomeProps> = (props) => {
+  const { repositories } = props;
 
   return (
     <div className="home">
@@ -19,3 +19,8 @@ const Home: NextPage<HomeProps> = () => {
     </div>
   );
 };
+
+
+
+
+export default Home;
