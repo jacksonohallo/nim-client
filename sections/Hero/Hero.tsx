@@ -40,16 +40,14 @@ const Hero = () => {
           </FadeInContainer>
           <FadeInContainer delay={1750}>
             <h4>
-              I'm a passionate Geospatial Analyst with 4 year experience in 
-              leveraging Geographic information Systems technologies in problem solving. Currently, doing 
-              Msc Applied Geoinformatic {" "}
+            I’m a passionate Geospatial Analyst and an aspiring full stack developer. I am currently studying M.Sc. Applied Geoinformatics at the  {" "}
               <a
                 href="https://w16.dev/"
                 target="_blank"
                 rel="noreferrer"
                 className="underline-hover"
               >
-               University of Salzburg, Austria
+               University of Salzburg, Austria.
               </a>
               .
             </h4>

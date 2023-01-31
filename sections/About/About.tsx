@@ -28,32 +28,34 @@ const About = () => {
             <div className="about__text">
               <FadeInContainer lazyLoad>
                 <p>
-                Geospatial Analyst with professional and academic experience in
-leveraging Geographic Information Systems (GIS) technologies in
-problem solving. Adept knowledge in geospatial data collection,
-analysis, and visualization with hands-on experience in Esri products
-including cloud-based GIS technologies. I have a comfortable
-understanding of spatial databases and currently working on my Java
-skills. I am very open-minded, communicative, team player and
-always willing to learn and take on new challenges.
+                I’m a geospatial analyst with an adept knowledge and experience in geodata acquisition, analysis, and visualization. My goal is to bridge geoinformatics concepts and mainstream IT  to problem solving. I am always looking take on new challenges, practice my craft and learn/relearn.
+I have hands-on experience in Esri products including cloud-based GIS technologies, spatial modelling, and spatial simulation. Additionally, I am a certified EIA/EA associate expert with an experience in oil and gas sector. I am keen on sustainable development with key interest in environmental management, natural resource management and climate change.
 
                 </p>
               </FadeInContainer>
               <FadeInContainer lazyLoad>
-                <p>The technologies I’ve been working with recently:</p>
+                <p>Below is a list of GIS softwares and  programming/scripting languages that I am skilled in:</p>
               </FadeInContainer>
               <FadeInContainer lazyLoad>
                 <ul className="about__skills">
-                  <li>ArcGIS pro</li>
-                  <li>Spatial simulation (GAMA)</li>
-                  <li>Agisoft metashape</li>
-                  <li>Survey 123</li>
                   <li>QGIS</li>
-                  <li>Java</li>
-                  <li>Geodata acquisition</li>
-                  <li>Geospatial databases (postgress)</li>
-                </ul>
+                  <li>Agisoft Metashape</li>
+                  <li>eCognition </li>
+                  <li>CAD</li>
+                  <li>PostgreSQL</li>
+                  <li>Agent based modelling (GAMA)</li>
+                  <li>Python</li>
+                  <li>Google Earth Engine</li>
+                  <li>JavaScript</li>
+                  <li>  Esri products</li>
+                  </ul>
               </FadeInContainer>
+            
+
+
+              
+
+
             </div>
           </div>
         </div>
