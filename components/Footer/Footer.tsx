@@ -8,7 +8,7 @@ const Footer = () => {
     <Styles className="footer">
       <Social />
       <Container>
-        <div>Built for N.M.K</div>
+      <div>@2023 Nimrod Mandela Kibet. All rights reserved.</div>
       </Container>
     </Styles>
   );
