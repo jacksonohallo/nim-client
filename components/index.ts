@@ -23,3 +23,6 @@ export {
   Social,
   ThemeProvider,
 };
+export { default as Loader } from './Loader';
+export { default as PostCard } from './PostCard';
+export { default as PostDetail } from './PostDetail';

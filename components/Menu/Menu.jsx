@@ -3,7 +3,7 @@ import MUIButton from "@mui/material/Button";
 import FadeInContainer from "../FadeInContainer/FadeInContainer";
 import { Button } from "..";
 import Styles from "./Styles";
-import { getCategories } from "../services";
+import { getCategories } from "../../services";
 import Link from "next/link";
 
 // material-ui
