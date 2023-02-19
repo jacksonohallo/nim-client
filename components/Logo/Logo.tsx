@@ -1,7 +1,7 @@
 import Styles from "./Styles";
 
 const Logo = () => {
-  return <Styles>Kibet</Styles>;
+  return <Styles>NTN</Styles>;
 };
 
 export default Logo;

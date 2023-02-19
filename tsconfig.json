@@ -16,6 +16,6 @@
     "jsxImportSource": "@emotion/react",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/post/[slug].js", "components/PostDetail.jsx", "service/index.js", "components/Menu/Menu.jsx", "components/PostCard.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
