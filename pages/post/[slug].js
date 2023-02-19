@@ -2,6 +2,7 @@ import React from 'react';
 import { PostDetail,Loader } from '../../components';
 import { getPosts, getPostDetails } from '../../services';
 import { useRouter } from 'next/router';
+import { Box } from '@mui/material';
 
 const PostDetails = ({ post }) => {
   const router = useRouter();
@@ -11,11 +12,9 @@ const PostDetails = ({ post }) => {
   }
 
   return (
-    <>
-    
-            <PostDetail post={post} />
-        
-    </>
+    <Box sx={{marginLeft:9, marginRight:9 }}>
+    <PostDetail post={post} />
+    </Box>
   );
 };
 

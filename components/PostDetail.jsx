@@ -23,13 +23,13 @@ const PostDetail = ({ post }) => {
     switch (type) {
       case 'heading-three':
         return (
-          <Typography key={index} variant="h3" sx={{ mb: 4, fontWeight: 'bold' }}>
+          <Typography key={index} variant="h3" sx={{ mb: 5, fontWeight: 'bold' }}>
             {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
           </Typography>
         );
       case 'paragraph':
         return (
-          <Typography key={index} variant="body1" sx={{ mb: 8 }}>
+          <Typography key={index} variant="body1" sx={{ mb: 2 }}>
             {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
           </Typography>
         );
@@ -54,7 +54,7 @@ const PostDetail = ({ post }) => {
               </ImageListItem>
             </ImageList>
             {obj.title && (
-              <Typography variant="caption" align="center" sx={{ color: 'text.secondary', mb: 4 }}>
+              <Typography variant="caption"  sx={{ color: 'text.secondary', mb: 2   }}>
                 {obj.title}
               </Typography>
             )}
@@ -72,25 +72,13 @@ const PostDetail = ({ post }) => {
   return (
 <Box sx={{ backgroundColor: 'background.paper', boxShadow: 3, borderRadius: '12px', py: 2, my: 2 }}>
       <Box sx={{ position: 'relative', overflow: 'hidden', mb: 6, boxShadow: 2 }}>
-        <img src={post.featuredImage.url} alt="" sx={{ width: '100%', height: 'auto' }} />
+        <img src={post.featuredImage.url} alt="" sx={{ width: '10%', height: 'auto' }} />
       </Box>
       <Box sx={{ px: { xs: 2, lg: 0 } }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', mb: 8 }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', mb: { xs: 2, lg: 0 } }}>
-            <StyledAvatar alt={post.author.name} src={post.author.photo.url} />
-            <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mr: 1 }}>
-              {post.author.name}
-            </Typography>
-          </Box>
-          <Typography variant="subtitle1" sx={{ color: 'text.secondary' }}>
-            {moment(post.createdAt).format('MMM DD, YYYY')}
-          </Typography>
-          </Box>
           <Typography>{post.title}</Typography>
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
-
-            return getContentFragment(index, children, typeObj, typeObj.type);
+          return getContentFragment(index, children, typeObj, typeObj.type);
           })}
         </Box>
       </Box>
