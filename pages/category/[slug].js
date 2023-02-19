@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-
 import { getCategories, getCategoryPost } from '../../services';
 import { PostCard, Loader } from '../../components';
+import Grid from '@mui/material/Grid';
 
 const CategoryPost = ({ posts }) => {
   const router = useRouter();
@@ -12,18 +12,18 @@ const CategoryPost = ({ posts }) => {
   }
 
   return (
-    <div >
-      <div>
-        <div>
-          {posts.map((post, index) => (
-            <PostCard key={index} post={post.node} />
-          ))}
-        </div>
-        </div>
-    </div>
+    <Grid container spacing={2}  sx={{marginLeft:8, marginRight:8}}>
+      {posts.map((post, index) => (
+        <Grid item xs={12} sm={6} md={4} key={index}>
+          <PostCard post={post.node} />
+        </Grid>
+      ))}
+    </Grid>
   );
 };
+
 export default CategoryPost;
+
 
 // Fetch data at build time
 export async function getStaticProps({ params }) {
