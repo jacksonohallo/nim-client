@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import { Box, Typography, Avatar, ImageList, ImageListItem, styled } from '@mui/material';
 
 const PostDetail = ({ post }) => {
