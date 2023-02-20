@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, Avatar, ImageList, ImageListItem, styled } from '@mui/material';
-import Image from 'next/image';
+
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -44,7 +44,13 @@ const PostDetail = ({ post }) => {
           <Box key={index}>
             <ImageList cols={1} sx={{ mb: 2 }}>
               <ImageListItem>
-              <Image src={post.featuredImage.url} alt="" width={600} height={400} layout="responsive" />
+              <img
+            key={index}
+            alt={obj.title}
+            height={obj.height}
+            width={obj.width}
+            src={obj.src}
+          />
               </ImageListItem>
             </ImageList>
             {obj.title && (
@@ -59,17 +65,16 @@ const PostDetail = ({ post }) => {
     }
   };
 
-  const StyledAvatar = styled(Avatar)(({ theme }) => ({
-    marginRight: theme.spacing(1),
-  }));
+
 
   return (
-<Box sx={{ backgroundColor: 'background.paper', boxShadow: 3, borderRadius: '12px', py: 2, my: 2 }}>
-      <Box sx={{ position: 'relative', overflow: 'hidden', mb: 6, boxShadow: 2 }}>
-        <Image src={post.featuredImage.url} alt="" width={600} height={400} layout="responsive" />
+<Box sx={{ backgroundColor: 'white', boxShadow: 3, borderRadius: '12px',  my: 2 }}>
+      <Box sx={{ height:'300px' ,overflow: 'hidden', mb: 6, boxShadow: 2 }}>
+      <img src={post.featuredImage.url} alt="" 
+       />
       </Box>
-      <Box sx={{ px: { xs: 2, lg: 0 } }}>
-          <Typography>{post.title}</Typography>
+      <Box sx={{ px: { xs: 2, lg: 0 } , color:'black', marginLeft:8, marginRight:8, }}>
+          <Typography sx={{display:"flex", justifyContent:"center" ,fontSize:"2rem" ,color:"black" }}>{post.title}</Typography>
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
           return getContentFragment(index, children, typeObj, typeObj.type);
