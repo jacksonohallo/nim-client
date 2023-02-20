@@ -36,7 +36,7 @@ const Hero = () => {
             <h1> Nimrod Kibet</h1>
           </FadeInContainer>
           <FadeInContainer delay={1600}>
-            <h2>Geospatial Analyst</h2>
+            <h2>Geospatial Analyst.</h2>
           </FadeInContainer>
           <FadeInContainer delay={1750}>
             <h4>
