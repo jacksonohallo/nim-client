@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Avatar, ImageList, ImageListItem, styled } from '@mui/material';
+import Image from 'next/image';
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -43,13 +44,7 @@ const PostDetail = ({ post }) => {
           <Box key={index}>
             <ImageList cols={1} sx={{ mb: 2 }}>
               <ImageListItem>
-                <img
-                  alt={obj.title}
-                  height={obj.height}
-                  width={obj.width}
-                  src={obj.src}
-                  style={{ objectFit: 'cover' }}
-                />
+              <Image src={post.featuredImage.url} alt="" width={600} height={400} layout="responsive" />
               </ImageListItem>
             </ImageList>
             {obj.title && (
@@ -71,7 +66,7 @@ const PostDetail = ({ post }) => {
   return (
 <Box sx={{ backgroundColor: 'background.paper', boxShadow: 3, borderRadius: '12px', py: 2, my: 2 }}>
       <Box sx={{ position: 'relative', overflow: 'hidden', mb: 6, boxShadow: 2 }}>
-        <img src={post.featuredImage.url} alt="" sx={{ width: '10%', height: 'auto' }} />
+        <Image src={post.featuredImage.url} alt="" width={600} height={400} layout="responsive" />
       </Box>
       <Box sx={{ px: { xs: 2, lg: 0 } }}>
           <Typography>{post.title}</Typography>
