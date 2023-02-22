@@ -9,6 +9,9 @@ import Logo from "./Logo/Logo";
 import Menu from "./Menu/Menu";
 import Social from "./Social/Social";
 import ThemeProvider from "./ThemeProvider/ThemeProvider";
+import Loader from "./Loader"
+import PostCard from "./PostCard";
+import PostDetail from "./PostDetail";
 
 export {
   Drawer,
@@ -22,8 +25,8 @@ export {
   Menu,
   Social,
   ThemeProvider,
+  Loader,
+  PostCard,
+  PostDetail,
 
 };
-export { default as Loader } from './Loader';
-export { default as PostCard } from './PostCard';
-export { default as PostDetail } from './PostDetail';

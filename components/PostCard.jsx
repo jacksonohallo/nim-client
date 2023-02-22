@@ -13,6 +13,7 @@ const PostCard = ({ post }) => {
         <CardMedia
           component="img"
           height="140"
+
           
 
           src={post.featuredImage.url} 

@@ -78,9 +78,7 @@ const Hero = () => {
         width={300}
         height={50}
       />
-
-
-    </Box>
+ </Box>
 
   );
 };
