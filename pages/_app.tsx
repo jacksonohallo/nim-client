@@ -5,8 +5,6 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import { motion } from "framer-motion";
 import { Layout, ThemeProvider } from "../components";
 import createEmotionCache from "../createEmotionCache";
-
-// Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
 interface MyAppProps extends AppProps {

@@ -12,7 +12,7 @@ const CategoryPost = ({ posts }) => {
   }
 
   return (
-    <Grid container spacing={2}  sx={{marginLeft:8, marginRight:8}}>
+    <Grid container spacing={2}  >
       {posts.map((post, index) => (
         <Grid item xs={12} sm={6} md={4} key={index}>
           <PostCard post={post.node} />

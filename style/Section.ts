@@ -2,9 +2,8 @@ import styled from "styled-components";
 import { colors, fonts, media } from ".";
 
 const Section = styled.section`
-  margin-bottom: 8rem;
-  padding-top: 4rem;
-
+  margin-bottom: 0.8rem;
+  
   .content {
     ${media.bp900`
       padding: 0 6rem;
@@ -19,6 +18,7 @@ const Section = styled.section`
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+  
 
     .fade-in-container-wrapper,
     .transition-container {

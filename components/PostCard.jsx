@@ -8,11 +8,13 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 const PostCard = ({ post }) => {
     
     return (
-  <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: '15px' }}>
+  <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: '15px' , alignItems:"center" }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
+          
+
           src={post.featuredImage.url} 
           alt={post.title} 
         />

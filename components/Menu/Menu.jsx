@@ -33,6 +33,16 @@ const Menu = () => {
   return (
     <Styles className="menu">
       <ul>
+      <li>
+          <FadeInContainer delay={350} >
+            <MUIButton color="primary" component="a" href="/">
+              Home
+            </MUIButton>
+          </FadeInContainer>
+        </li>
+
+
+
         <li>
           <FadeInContainer delay={350}>
             <MUIButton color="primary" component="a" href="/#about">

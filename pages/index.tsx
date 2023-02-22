@@ -1,21 +1,17 @@
-import axios from "axios";
+import { Box } from '@mui/material';
 import type { NextPage } from "next";
 import { About, Contact, Hero } from "../sections";
-
-
 
 const Home: NextPage = () => {
 
   return (
-    <div className="home">
-      <Hero />
-      <About />
-      <Contact />
-    </div>
+    <Box>
+    <Hero />
+    <About />
+    <Contact />
+  </Box>
+  
   );
 };
-
-
-
 
 export default Home;
