@@ -3,6 +3,8 @@ import Container from "@mui/material/Container";
 import { motion } from "framer-motion";
 import { FadeInContainer } from "../../components";
 import Styles from "./Styles";
+import Image from "next/image";
+import {Box} from "@mui/material"
 
 const Hero = () => {
   const [scrollIconIsVisible, setScrollIconIsVisible] = useState(true);
@@ -26,7 +28,8 @@ const Hero = () => {
   }, []);
 
   return (
-    <Styles>
+    <Box sx={{display:"flex"}}>
+  <Styles>
       <Container maxWidth="lg">
         <div className="content">
           <FadeInContainer delay={1300}>
@@ -47,10 +50,10 @@ const Hero = () => {
                 rel="noreferrer"
                 className="underline-hover"
               >
-               University of Salzburg, Austria.
+               University of Salzburg, Austria
               </a>
               .
-            </h4>
+              </h4>
   
           </FadeInContainer>
         </div>
@@ -68,6 +71,17 @@ const Hero = () => {
         />
       </FadeInContainer>
     </Styles>
+
+    <Image
+        src="/assets/Capture.PNG"
+        alt="My Image"
+        width={300}
+        height={50}
+      />
+
+
+    </Box>
+
   );
 };
 
