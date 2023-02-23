@@ -3,23 +3,27 @@ import { useRouter } from 'next/router';
 import { getCategories, getCategoryPost } from '../../services';
 import { PostCard, Loader } from '../../components';
 import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 
 const CategoryPost = ({ posts }) => {
   const router = useRouter();
+  const theme = useTheme();
 
   if (router.isFallback) {
     return <Loader />;
   }
 
   return (
-    <Grid container spacing={2}  paddingRight='70px' paddingLeft="70px">
-      {posts.map((post, index) => (
-        <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex',
-        justifyContent: 'center',}}>
-          <PostCard post={post.node} />
-        </Grid>
-      ))}
-    </Grid>
+    <Box sx={{ padding: { xs: 2, sm: 4 }, margin: 'auto', maxWidth: theme.breakpoints.values.lg }}>
+      <Grid container spacing={2}>
+        {posts.map((post, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <PostCard post={post.node} />
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 

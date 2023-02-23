@@ -68,19 +68,21 @@ const PostDetail = ({ post }) => {
 
 
   return (
-<Box sx={{ backgroundColor: 'white', boxShadow: 3, borderRadius: '12px',  my: 2 }}>
-      <Box sx={{ height:'300px' ,overflow: 'hidden', mb: 6, boxShadow: 2 }}>
-      <img src={post.featuredImage.url} alt="" 
-       />
-      </Box>
-      <Box sx={{ px: { xs: 2, lg: 0 } , color:'black', marginLeft:8, marginRight:8, }}>
-          <Typography sx={{display:"flex", justifyContent:"center" ,fontSize:"2rem" ,color:"black" }}>{post.title}</Typography>
-          {post.content.raw.children.map((typeObj, index) => {
-            const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
-          return getContentFragment(index, children, typeObj, typeObj.type);
-          })}
-        </Box>
-      </Box>
+<Box sx={{ backgroundColor: 'white', boxShadow: 3, borderRadius: '12px', my: 2 }}>
+  <Box sx={{ height:'auto', overflow: 'hidden', mb: { xs: 4, lg: 6 }, boxShadow: 2 }}>
+    <img src={post.featuredImage.url} alt="" style={{ width: '100%', height: 'auto' }} />
+  </Box>
+  <Box sx={{ px: { xs: 2, lg: 0 }, color:'black', ml: { xs: 2, md: 8 }, mr: { xs: 2, md: 8 } }}>
+    <Typography sx={{ fontSize: { xs: '1.5rem', lg: '2rem' }, color: 'black', textAlign: { xs: 'center', md: 'left' } }}>
+      {post.title}
+    </Typography>
+    {post.content.raw.children.map((typeObj, index) => {
+      const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+      return getContentFragment(index, children, typeObj, typeObj.type);
+    })}
+  </Box>
+</Box>
+
   );
 };
 

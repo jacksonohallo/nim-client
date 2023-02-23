@@ -40,10 +40,7 @@ const Menu = () => {
             </MUIButton>
           </FadeInContainer>
         </li>
-
-
-
-        <li>
+         <li>
           <FadeInContainer delay={350}>
             <MUIButton color="primary" component="a" href="/#about">
               About
