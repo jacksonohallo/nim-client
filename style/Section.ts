@@ -18,6 +18,7 @@ const Section = styled.section`
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+
   
 
     .fade-in-container-wrapper,

@@ -6,6 +6,7 @@ const Styles = styled.nav`
     display: flex;
     justify-content: space-between;
     gap: 1.25rem;
+    margin-right:2rem;
 
     a {
       color: ${colors.green};

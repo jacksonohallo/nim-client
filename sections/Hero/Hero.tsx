@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import { motion } from "framer-motion";
 import { FadeInContainer } from "../../components";
 import Styles from "./Styles";
-import Image from "next/image";
+// import Image from "next/image";
 import { Box } from "@mui/material";
 
 const Hero = () => {
@@ -28,7 +28,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <Box sx={{ display: "flex", paddingRight: "5%" }}>
+    <Box sx={{ display: "flex" }}>
       <Styles>
         <Container maxWidth="lg">
           <div className="content">
@@ -39,7 +39,7 @@ const Hero = () => {
               <h1> Nimrod Kibet</h1>
             </FadeInContainer>
             <FadeInContainer delay={1600}>
-              <h3>Geospatial Analyst.</h3>
+              <h2>Geospatial Analyst.</h2>
             </FadeInContainer>
             <FadeInContainer delay={1750}>
               <h4>
@@ -73,12 +73,12 @@ const Hero = () => {
         </FadeInContainer>
       </Styles>
 
-      <Image
+      {/* <Image
         src="/assets/bannerImg.png"
         alt="My Image"
         width={500}
         height={50}
-      />
+      /> */}
     </Box>
   );
 };
