@@ -12,9 +12,10 @@ const CategoryPost = ({ posts }) => {
   }
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2}  paddingRight='70px' paddingLeft="70px">
       {posts.map((post, index) => (
-        <Grid item xs={12} sm={6} md={4} key={index} >
+        <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex',
+        justifyContent: 'center',}}>
           <PostCard post={post.node} />
         </Grid>
       ))}
