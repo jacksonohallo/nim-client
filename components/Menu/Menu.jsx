@@ -5,19 +5,30 @@ import { Button } from "../";
 import Styles from "./Styles";
 import { getCategories } from "../../services";
 import Link from "next/link";
-
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 // material-ui
-import { Menu as Menuu } from "@mui/material";
+import { Menu as Menuu , styled} from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
-const Menu = () => {
+    const Menu = () => {
   const [categories, setCategories] = useState([]);
-
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   useEffect(() => {
     getCategories().then((newCategories) => {
       setCategories(newCategories);
     });
   }, []);
+  const handleCloseMenu = () => {
+    if (isSmallScreen) {
+      setTimeout(() => {
+        handleClose();
+      }, 250); // Wait for 250ms before closing on small screens
+    } else {
+      handleClose(); // Close immediately on larger screens
+    }
+  };
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -69,7 +80,18 @@ const Menu = () => {
               }}
             >
               {categories.map((category, index) => (
-                <MenuItem onClick={handleClose} key={category.slug}>
+                <MenuItem onClick={handleClose} key={category.slug}  sx={{
+                  // add any custom styles here
+                  flex: {
+                    xs: '0 0 auto', // allow the menu item to wrap on small screens
+                    md: '1 1 auto' // make the menu item grow to fill available space on larger screens
+                  },
+                  justifyContent: {
+                    xs: 'flex-start', // align to the left on small screens
+                    md: 'center' // center on larger screens
+                  },
+                  alignItems: 'center' // center the content vertically
+                }} >
                   <Link href={`/category/${category.slug}`}>
                     {category.name}
                   </Link>
@@ -99,3 +121,6 @@ const Menu = () => {
 };
 
 export default Menu;
+
+
+

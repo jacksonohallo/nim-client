@@ -60,7 +60,7 @@ const Social = () => {
               </a> */}
                <IconButton
               component="a"
-              href="https://www.linkedin.com/in/nimrod-kibet-b6b340115/"
+              href="https://wa.me/0723649647"
               target="_blank"
               rel="noreferrer"
             >
