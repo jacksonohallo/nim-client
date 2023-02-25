@@ -11,15 +11,17 @@ import { useTheme } from '@mui/material/styles';
 import { Menu as Menuu , styled} from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
-    const Menu = () => {
+const Menu = () => {
   const [categories, setCategories] = useState([]);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   useEffect(() => {
     getCategories().then((newCategories) => {
       setCategories(newCategories);
     });
   }, []);
+
   const handleCloseMenu = () => {
     if (isSmallScreen) {
       setTimeout(() => {
@@ -31,27 +33,29 @@ import MenuItem from "@mui/material/MenuItem";
   };
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  
-  const handleClick = (event) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleOpen = (event) => {
     setAnchorEl(event.currentTarget);
+    setIsHovered(true);
   };
 
   const handleClose = () => {
     setAnchorEl(null);
+    setIsHovered(false);
   };
 
   return (
     <Styles className="menu">
       <ul>
-      <li>
-          <FadeInContainer delay={350} >
+        <li>
+          <FadeInContainer delay={350}>
             <MUIButton color="primary" component="a" href="/">
               Home
             </MUIButton>
           </FadeInContainer>
         </li>
-         <li>
+        <li>
           <FadeInContainer delay={350}>
             <MUIButton color="primary" component="a" href="/#about">
               About
@@ -63,17 +67,18 @@ import MenuItem from "@mui/material/MenuItem";
             <MUIButton
               component="a"
               id="basic-button"
-              aria-controls={open ? "basic-menu" : undefined}
+              aria-controls={isHovered ? "basic-menu" : undefined}
               aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
+              aria-expanded={isHovered ? "true" : undefined}
+              onMouseEnter={handleOpen}
+              onMouseLeave={handleClose}
             >
               Geoinformatics
             </MUIButton>
             <Menuu
               id="basic-menu"
               anchorEl={anchorEl}
-              open={open}
+              open={isHovered}
               onClose={handleClose}
               MenuListProps={{
                 "aria-labelledby": "basic-button",
