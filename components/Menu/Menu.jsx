@@ -1,40 +1,48 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import MUIButton from "@mui/material/Button";
 import FadeInContainer from "../FadeInContainer/FadeInContainer";
 import { Button } from "../";
 import Styles from "./Styles";
 import { getCategories } from "../../services";
 import Link from "next/link";
-
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 // material-ui
-import { Menu as Menuu } from "@mui/material";
+import { Menu as Menuu , styled} from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
 const Menu = () => {
   const [categories, setCategories] = useState([]);
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
   useEffect(() => {
     getCategories().then((newCategories) => {
       setCategories(newCategories);
     });
   }, []);
 
-  const [anchorEl, setAnchorEl] = useState(null);
-  const buttonRef = useRef(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(buttonRef.current);
-  };
-
-  const handleClose = (event) => {
-    // check if the click event occurred within the menu
-    if (anchorEl && anchorEl.contains(event.target)) {
-      return;
+  const handleCloseMenu = () => {
+    if (isSmallScreen) {
+      setTimeout(() => {
+        handleClose();
+      }, 250); // Wait for 250ms before closing on small screens
+    } else {
+      handleClose(); // Close immediately on larger screens
     }
-    setAnchorEl(null);
   };
 
-  const handleMouseLeave = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+    setIsHovered(true);
+  };
+
+  const handleClose = () => {
     setAnchorEl(null);
+    setIsHovered(false);
   };
 
   return (
@@ -59,26 +67,36 @@ const Menu = () => {
             <MUIButton
               component="a"
               id="basic-button"
-              ref={buttonRef}
-              aria-controls={anchorEl ? "basic-menu" : undefined}
+              aria-controls={isHovered ? "basic-menu" : undefined}
               aria-haspopup="true"
-              aria-expanded={anchorEl ? "true" : undefined}
-              onClick={handleClick}
-              onMouseEnter={handleClick}
-              
+              aria-expanded={isHovered ? "true" : undefined}
+              onMouseEnter={handleOpen}
+              onMouseLeave={handleClose}
             >
               Geoinformatics
             </MUIButton>
             <Menuu
               id="basic-menu"
               anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
+              open={isHovered}
               onClose={handleClose}
-              onMouseLeave={handleMouseLeave}
-             
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
             >
               {categories.map((category, index) => (
-                <MenuItem onClick={handleClose} key={category.slug}> 
+                <MenuItem onClick={handleClose} key={category.slug}  sx={{
+                  // add any custom styles here
+                  flex: {
+                    xs: '0 0 auto', // allow the menu item to wrap on small screens
+                    md: '1 1 auto' // make the menu item grow to fill available space on larger screens
+                  },
+                  justifyContent: {
+                    xs: 'flex-start', // align to the left on small screens
+                    md: 'center' // center on larger screens
+                  },
+                  alignItems: 'center' // center the content vertically
+                }} >
                   <Link href={`/category/${category.slug}`}>
                     {category.name}
                   </Link>
@@ -108,3 +126,5 @@ const Menu = () => {
 };
 
 export default Menu;
+
+
