@@ -1,57 +1,53 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import MUIButton from "@mui/material/Button";
 import FadeInContainer from "../FadeInContainer/FadeInContainer";
 import { Button } from "../";
 import Styles from "./Styles";
 import { getCategories } from "../../services";
 import Link from "next/link";
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+
 // material-ui
-import { Menu as Menuu , styled} from "@mui/material";
+import { Menu as Menuu } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
-    const Menu = () => {
+const Menu = () => {
   const [categories, setCategories] = useState([]);
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   useEffect(() => {
     getCategories().then((newCategories) => {
       setCategories(newCategories);
     });
   }, []);
-  const handleCloseMenu = () => {
-    if (isSmallScreen) {
-      setTimeout(() => {
-        handleClose();
-      }, 250); // Wait for 250ms before closing on small screens
-    } else {
-      handleClose(); // Close immediately on larger screens
-    }
-  };
 
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-  
+  const buttonRef = useRef(null);
+
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setAnchorEl(buttonRef.current);
   };
 
-  const handleClose = () => {
+  const handleClose = (event) => {
+    // check if the click event occurred within the menu
+    if (anchorEl && anchorEl.contains(event.target)) {
+      return;
+    }
+    setAnchorEl(null);
+  };
+
+  const handleMouseLeave = () => {
     setAnchorEl(null);
   };
 
   return (
     <Styles className="menu">
       <ul>
-      <li>
-          <FadeInContainer delay={350} >
+        <li>
+          <FadeInContainer delay={350}>
             <MUIButton color="primary" component="a" href="/">
               Home
             </MUIButton>
           </FadeInContainer>
         </li>
-         <li>
+        <li>
           <FadeInContainer delay={350}>
             <MUIButton color="primary" component="a" href="/#about">
               About
@@ -63,35 +59,26 @@ import MenuItem from "@mui/material/MenuItem";
             <MUIButton
               component="a"
               id="basic-button"
-              aria-controls={open ? "basic-menu" : undefined}
+              ref={buttonRef}
+              aria-controls={anchorEl ? "basic-menu" : undefined}
               aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
+              aria-expanded={anchorEl ? "true" : undefined}
               onClick={handleClick}
+              onMouseEnter={handleClick}
+              
             >
               Geoinformatics
             </MUIButton>
             <Menuu
               id="basic-menu"
               anchorEl={anchorEl}
-              open={open}
+              open={Boolean(anchorEl)}
               onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
+              onMouseLeave={handleMouseLeave}
+             
             >
               {categories.map((category, index) => (
-                <MenuItem onClick={handleClose} key={category.slug}  sx={{
-                  // add any custom styles here
-                  flex: {
-                    xs: '0 0 auto', // allow the menu item to wrap on small screens
-                    md: '1 1 auto' // make the menu item grow to fill available space on larger screens
-                  },
-                  justifyContent: {
-                    xs: 'flex-start', // align to the left on small screens
-                    md: 'center' // center on larger screens
-                  },
-                  alignItems: 'center' // center the content vertically
-                }} >
+                <MenuItem onClick={handleClose} key={category.slug}> 
                   <Link href={`/category/${category.slug}`}>
                     {category.name}
                   </Link>
@@ -121,6 +108,3 @@ import MenuItem from "@mui/material/MenuItem";
 };
 
 export default Menu;
-
-
-
