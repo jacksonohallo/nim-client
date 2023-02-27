@@ -19,7 +19,7 @@ const Social = () => {
           <FadeInContainer delay={1900}>
             <IconButton
               component="a"
-              href="https://github.com/jacksonohallo/"
+              href="https://github.com/Nimrod2022"
               target="_blank"
               rel="noreferrer"
             >
