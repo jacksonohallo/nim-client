@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.2",
     "@mui/styled-engine-sc": "^5.4.2",
+    "@mui/styles": "^5.11.9",
     "axios": "^0.26.0",
     "framer-motion": "^6.2.8",
     "graphql": "^16.6.0",
