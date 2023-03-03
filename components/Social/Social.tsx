@@ -72,7 +72,7 @@ const Social = () => {
           <FadeInContainer delay={2300}>
             <IconButton
               component="a"
-              href="https://www.linkedin.com/in/nimrod-kibet-b6b340115/"
+              href="https://www.twitter.com/mandela_nimrod/"
               target="_blank"
               rel="noreferrer"
             >
@@ -82,7 +82,7 @@ const Social = () => {
           <FadeInContainer delay={2300}>
             <IconButton
               component="a"
-              href="https://www.linkedin.com/in/nimrod-kibet-b6b340115/"
+              href="https://www.facebook.com/nimrod madela/"
               target="_blank"
               rel="noreferrer"
             >
