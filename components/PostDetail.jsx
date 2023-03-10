@@ -1,89 +1,52 @@
 import React from 'react';
-import { Box, Typography, Avatar, ImageList, ImageListItem, styled } from '@mui/material';
+import moment from "moment";
+import {RichText} from "@graphcms/rich-text-react-renderer";
+import { styled } from '@mui/material/styles';
+import { Box, Button, Grid, Typography } from '@mui/material';
 
+const Container = styled(Box)({
+  backgroundColor: 'white',
+  padding: '24px',
+  fontFamily: 'hygraph'
+});
 
-const PostDetail = ({ post }) => {
-  const getContentFragment = (index, text, obj, type) => {
-    let modifiedText = text;
-
-    if (obj) {
-      if (obj.bold) {
-        modifiedText = <strong key={index}>{text}</strong>;
-      }
-
-      if (obj.italic) {
-        modifiedText = <em key={index}>{text}</em>;
-      }
-
-      if (obj.underline) {
-        modifiedText = <u key={index}>{text}</u>;
-      }
-    }
-
-    switch (type) {
-      case 'heading-three':
-        return (
-          <Typography key={index} variant="h3" sx={{ mb: 5, fontWeight: 'bold' }}>
-            {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
-          </Typography>
-        );
-      case 'paragraph':
-        return (
-          <Typography key={index} variant="body1" sx={{ mb: 2 }}>
-            {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
-          </Typography>
-        );
-      case 'heading-four':
-        return (
-          <Typography key={index} variant="h4" sx={{ mb: 4, fontWeight: 'medium' }}>
-            {modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}
-          </Typography>
-        );
-      case 'image':
-        return (
-          <Box key={index}>
-            <ImageList cols={1} sx={{ mb: 2 }}>
-              <ImageListItem>
-              <img
-            key={index}
-            alt={obj.title}
-            height={obj.height}
-            width={obj.width}
-            src={obj.src}
-          />
-              </ImageListItem>
-            </ImageList>
-            {obj.title && (
-              <Typography variant="caption"  sx={{ color: 'text.secondary', mb: 2   }}>
-                {obj.title}
-              </Typography>
-            )}
-          </Box>
-        );
-      default:
-        return modifiedText;
-    }
-  };
-
-
+const PostDetail = ({post}) => {
 
   return (
-<Box sx={{ backgroundColor: 'white', boxShadow: 3, borderRadius: '12px', my: 2 }}>
-  {/* <Box sx={{ height:'auto', overflow: 'hidden', mb: { xs: 4, lg: 6 }, boxShadow: 2 }}>
-    <img src={post.featuredImage.url} alt="" style={{ width: '100%', height: 'auto' }} />
-  </Box> */}
-  <Box sx={{ px: { xs: 2, lg: 0 }, color:'black', ml: { xs: 2, md: 8 }, mr: { xs: 2, md: 8 } }}>
-    <Typography sx={{ fontSize: { xs: '1.5rem', lg: '2rem' }, color: 'black', textAlign: { xs: 'center', md: 'left' } }}>
-      {post.title}
-    </Typography>
-    {post.content.raw.children.map((typeObj, index) => {
-      const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
-      return getContentFragment(index, children, typeObj, typeObj.type);
-    })}
-  </Box>
-</Box>
-
+    <Box sx={{ backgroundColor: 'white' }}>
+      <Container sx={{ boxShadow: '5px 5px 0px 0px rgba(201, 233, 255, 0.8)', paddingBottom: '24px' }}>
+        <Box sx={{ position: 'relative', overflow: 'hidden', boxShadow: 'md', marginBottom: '24px' }}>
+          <img
+            src={post.featuredImage.url}
+            alt={post.title}
+            style={{ objectFit: 'cover', height: '100%', width: '100%' }}
+          />
+        </Box>
+        <Box sx={{ px: { xs: 2, lg: 0 } }}>
+          <Typography variant="h2" component="h1" sx={{ mb: '24px', fontSize: { xs: '2rem', md: '2.5rem', lg: '3rem' }, color: 'black' }}>
+            {post.title}
+          </Typography>
+          <RichText
+            content={post.content.raw.children}
+            renderers={{
+              h1: ({ children }) => <Typography variant="h1" sx={{ mb: '16px', fontSize: { xs: '2.5rem', md: '3rem', lg: '3.5rem' }, color: 'black', fontWeight: 'bold', textDecoration: 'underline' }}>{children}</Typography>,
+              h2: ({ children }) => <Typography variant="h2" sx={{ mb: '16px', fontSize: { xs: '2rem', md: '2.5rem', lg: '3rem' }, color: 'black', fontWeight: 'bold', textDecoration: 'underline' }}>{children}</Typography>,
+              ul: ({ children }) => <ul className="list-disc list-inside my-4 text-lg" style={{ color: 'black' }}>{children}</ul>,
+              li: ({ children }) => <li className="my-2 text-lg font-bold" style={{ color: 'black' }}>{children}</li>,
+              h4: ({ children }) => <Typography variant="h4" style={{color: 'black', fontWeight: 'bold', textDecoration: 'underline' }}>{children}</Typography>,
+              h5: ({ children }) => <Typography variant="h5" style={{color: 'black', fontWeight: 'bold', textDecoration: 'underline' }}>{children}</Typography>,
+              h6: ({ children }) => <Typography variant="h6" style={{color: 'black', fontWeight: 'bold', textDecoration: 'underline' }}>{children}</Typography>,
+              p: ({ children }) => <Typography variant="body1" sx={{ mb: '16px', color: 'black' }}>{children}</Typography>,
+              code: ({ children }) => <code className="bg-gray-100 dark:bg-blue-400 rounded-md p-1 text-sm " style={{color: 'black'}}>{children}</code>,
+              code_block: ({ children }) => <pre className="bg-white-100 dark:bg-blue-400 overflow-y-scroll rounded-md p-2 text-sm" style={{color: 'black'}}>{children}</pre>,
+            }}
+          />
+        </Box>
+      </Container>
+    </Box>
   );
-};
+}
+
+
 
 export default PostDetail;
